@@ -17,6 +17,7 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
     },
+    devtool: '#inline-source-map',
     module : {
         loaders : [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
