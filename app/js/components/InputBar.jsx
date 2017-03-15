@@ -22,8 +22,8 @@ export default class InputBar extends Component {
         return string.replace(/^\s+|\s+$/g, '');
     }
 
-    handleCheckBox(e){
-        console.log(e);
+    handleCheckBox(){
+        this.props.handleCheckAll(!this.props.checkAll);
     }
     handleKeyDown(e) {
         const ENTER_KEY = 13;
@@ -43,7 +43,7 @@ export default class InputBar extends Component {
     render() {
         return (
         <div className="input-bar">
-             <input type="checkbox" onClick={(e) => this.handleCheckBox(e)}></input>
+             <input type="checkbox" checked={this.props.checkAll} onClick={(e) => this.handleCheckBox()}></input>
              <input type="text" value={this.state.editText} onChange={this.handleTextInput} onKeyPress={this.handleKeyDown}></input>
         </div>
         );
