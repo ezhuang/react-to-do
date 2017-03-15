@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InputBar from './InputBar.jsx';
 import ToDoList from './ToDoList.jsx';
+import ToDoFooter from './ToDoFooter.jsx';
 
 export default class App extends Component {
 
@@ -20,6 +21,7 @@ export default class App extends Component {
             <h1>todos</h1>
             <InputBar handleSubmit={this.handleSubmit}></InputBar>
             <ToDoList value={this.state.toDoList}></ToDoList>
+            <ToDoFooter value={this.state.toDoList && this.state.toDoList.length}/>
         </div>;
     }
 }

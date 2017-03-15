@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ToDoItem from './ToDoItem.jsx'
 
 export default class ToDoList extends Component{
     constructor(props) {
@@ -7,7 +8,7 @@ export default class ToDoList extends Component{
     render(){
         return (
             <ul>
-                {this.props.value.map((result,index) => (<li key={result.toString()}>{result}</li>))}
+                {this.props.value.map((result,index) => (<li key={index}><ToDoItem value={result}/></li>))}
             </ul>
         );
     }

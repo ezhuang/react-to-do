@@ -1,8 +1,46 @@
+* {
+    -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+
 .App {
-    width: 30em;
+    width: 40%;
     margin: 0 auto;
 }
 
-.title {
-    font-size:
+h1 {
+    text-align: center;
+}
+
+.input-bar input[type="text"]{
+    width: 95%;
+    position: absolute;
+    right: 0em;
+    padding-left: 2em;
+}
+.App div{
+    margin: 0 auto;
+    position: relative;
+}
+
+.to-do-footer {
+    position: relative;
+}
+
+.to-do-footer a{
+    position: absolute;
+    right: 0em;
+}
+
+.to-do-footer div{
+    position: absolute;
+    display: inline-block;
+    margin-left: 10%;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
 }
