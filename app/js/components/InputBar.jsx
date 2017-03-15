@@ -29,7 +29,10 @@ export default class InputBar extends Component {
         const ENTER_KEY = 13;
         switch (e.which){
             case ENTER_KEY:
-                this.props.handleSubmit(this.state.editText);
+                this.props.handleSubmit({
+                                        text: this.state.editText,
+                                        completed: false
+                                    });
                 this.state.editText = '';
                 break;
             default:
