@@ -27,7 +27,7 @@ export default class App extends Component {
         let newItem = update(value,{});
         newItem.completed = !newItem.completed;
         newToDoList[newItem.index] = newItem;
-        this.setState({toDoList: newToDoList});
+        this.setState({checkAll: false, toDoList: newToDoList});
     }
 
     handleCheckAll(checked) {
