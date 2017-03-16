@@ -13,6 +13,7 @@ export default class App extends Component {
         this.handleCheckAll = this.handleCheckAll.bind(this);
         this.handleClickFilter = this.handleClickFilter.bind(this);
         this.filterToDoList = this.filterToDoList.bind(this);
+        this.clearCompleted = this.clearCompleted.bind(this);
         this.state = {
             filter: 'all',
             checkAll: false,
@@ -64,12 +65,28 @@ export default class App extends Component {
         });
     }
 
+    clearCompleted() {
+        let hasCompleted = false;
+        const filterList = this.state.toDoList.filter((item) => {
+            if(!item.completed){
+                return true;
+            }else{
+                hasCompleted = true;
+                return false;
+            }
+        });
+
+        if (hasCompleted){
+            this.setState({toDoList:filterList, checkAll: false});
+        }
+    }
+
     render() {
         return <div className="App">
             <h1>todos</h1>
             <InputBar handleSubmit={this.handleSubmit} checkAll={this.state.checkAll} handleCheckAll={this.handleCheckAll}></InputBar>
             <ToDoList value={this.filterToDoList(this.state.toDoList)} handleItemCheck = {this.handleItemCheck} filter={this.state.filter}></ToDoList>
-            <ToDoFooter itemsLen={this.filterToDoList(this.state.toDoList).length} handleClickFilter = {this.handleClickFilter}/>
+            <ToDoFooter itemsLen={this.filterToDoList(this.state.toDoList).length} handleClickFilter = {this.handleClickFilter} clearCompleted={this.clearCompleted}/>
         </div>;
     }
 }

@@ -15,7 +15,7 @@ export default class ToDoFooter extends Component{
                     <li><a onClick={() => {this.props.handleClickFilter('active')}}>Active</a></li>
                     <li><a onClick={() => {this.props.handleClickFilter('completed')}}>Completed</a></li>
                 </ul>
-                <a href="/">Clear completed</a>
+                <a onClick={() => {this.props.clearCompleted()}}>Clear completed</a>
             </div>
         );
     }

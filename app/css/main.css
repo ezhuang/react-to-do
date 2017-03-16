@@ -4,10 +4,15 @@
         box-sizing: border-box;
 }
 
+body {
+    background-color: #f7f8f9;
+}
+
 
 .App {
     width: 40%;
     margin: 0 auto;
+    background-color: white;
 }
 
 h1 {
@@ -46,6 +51,10 @@ h1 {
     float: left;
     list-style-type: none;
     margin: 0 auto;
+}
+
+.to-do-footer a:hover{
+    cursor: pointer;
 }
 
 .items-filter{
