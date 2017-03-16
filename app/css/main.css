@@ -20,27 +20,45 @@ h1 {
     right: 0em;
     padding-left: 2em;
 }
-.App div{
+.App>div{
     margin: 0 auto;
     position: relative;
+}
+
+.App>ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .to-do-footer {
     position: relative;
 }
 
-.to-do-footer a{
-    position: absolute;
-    right: 0em;
+.to-do-footer>span{
+    float: left;
 }
 
-.to-do-footer div{
-    position: absolute;
-    display: inline-block;
-    margin-left: 10%;
+.to-do-footer>a{
+    float: right;
 }
 
-ul {
-    padding: 0;
+.to-do-footer>ul {
+    float: left;
     list-style-type: none;
+    margin: 0 auto;
+}
+
+.items-filter{
+    display: inline-block;
+    overflow: hidden;
+}
+.items-filter li {
+    float: left;
+    padding-left: 1em;
+}
+
+.items-filter li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
 }

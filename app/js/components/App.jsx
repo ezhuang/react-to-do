@@ -11,7 +11,10 @@ export default class App extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleItemCheck = this.handleItemCheck.bind(this);
         this.handleCheckAll = this.handleCheckAll.bind(this);
+        this.handleClickFilter = this.handleClickFilter.bind(this);
+        this.filterToDoList = this.filterToDoList.bind(this);
         this.state = {
+            filter: 'all',
             checkAll: false,
             toDoList: []
         };
@@ -38,12 +41,35 @@ export default class App extends Component {
         this.setState({checkAll:checked, toDoList:newValue});
     }
 
+    handleClickFilter(clickItem){
+        this.setState({filter: clickItem});
+    }
+
+    filterToDoList(list) {
+        return update(list,{}).filter(
+            (item) => {
+                switch (this.state.filter) {
+                case "all":
+                    return true;
+                    break;
+                case "active":
+                    return !item.completed;
+                    break;
+                case "completed":
+                    return item.completed;
+                    break;
+                default:
+                    throw 'unregconizable filter';
+                }
+        });
+    }
+
     render() {
         return <div className="App">
             <h1>todos</h1>
             <InputBar handleSubmit={this.handleSubmit} checkAll={this.state.checkAll} handleCheckAll={this.handleCheckAll}></InputBar>
-            <ToDoList value={this.state.toDoList} handleItemCheck = {this.handleItemCheck}></ToDoList>
-            <ToDoFooter value={this.state.toDoList && this.state.toDoList.length}/>
+            <ToDoList value={this.filterToDoList(this.state.toDoList)} handleItemCheck = {this.handleItemCheck} filter={this.state.filter}></ToDoList>
+            <ToDoFooter itemsLen={this.filterToDoList(this.state.toDoList).length} handleClickFilter = {this.handleClickFilter}/>
         </div>;
     }
 }
