@@ -8,7 +8,7 @@ export default class ToDoFooter extends Component{
 
     render(){
         return (
-            <div className="to-do-footer">
+            <div className="to-do-footer shadow" style={this.props.allLen > 0 ? {display: 'block'} : {}}>
                 <span> {this.props.itemsLen} items left</span>
                 <ul className="items-filter">
                     <li><a onClick={() => {this.props.handleClickFilter('all')}}>All</a></li>

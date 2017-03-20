@@ -5,7 +5,7 @@ export default class InputBar extends Component {
 
     constructor(props) {
       super(props);
-      this.state = {editText: 'what needs to be done?'};
+      this.state = {editText: ''};
 
       this.handleTextInput = this.handleTextInput.bind(this);
       this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -44,7 +44,7 @@ export default class InputBar extends Component {
         return (
         <div className="input-bar">
              <input type="checkbox" checked={this.props.checkAll} onClick={(e) => this.handleCheckBox()}></input>
-             <input type="text" value={this.state.editText} onChange={this.handleTextInput} onKeyPress={this.handleKeyDown}></input>
+             <input type="text" value={this.state.editText} placeholder="What needs to be done?" onChange={this.handleTextInput} onKeyPress={this.handleKeyDown}></input>
         </div>
         );
     }

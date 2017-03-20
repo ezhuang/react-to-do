@@ -3,6 +3,13 @@
    -moz-box-sizing: border-box;
         box-sizing: border-box;
 }
+/*disable all focus hightlight*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 
 body {
     background-color: #f7f8f9;
@@ -17,14 +24,34 @@ body {
 
 h1 {
     text-align: center;
+    font-size: 4em;
+    margin: 40px 0 10px 0;
+    font-weight: 50;
 }
 
-.input-bar input[type="text"]{
-    width: 95%;
-    position: absolute;
-    right: 0em;
-    padding-left: 2em;
+.input-bar {
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid #e5e6e8;
+
 }
+.input-bar input[type="text"]{
+    width: 100%;
+    position: absolute;
+    border-style: none;
+    right: 0em;
+    height: 100%;
+    padding: 16px 16px 16px 60px;
+    font-size: 1em;
+    color: #4e4e4f;
+}
+
+.input-bar input[type="checkbox"]{
+    margin: 16px 16px;
+    z-index: 3;
+    position: relative;
+}
+
 .App>div{
     margin: 0 auto;
     position: relative;
@@ -33,10 +60,42 @@ h1 {
 .App>ul {
     list-style-type: none;
     padding-left: 0;
+    margin: auto;
+}
+
+.to-do-item {
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid #e5e6e8;
+}
+
+.shadow {
+    -moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+    -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.to-do-item input{
+    margin: 16px 16px;
+    z-index: 3;
+    position: relative;
+}
+
+.to-do-item span{
+    width: 100%;
+    position: absolute;
+    right: 0em;
+    height: 100%;
+    padding: 16px 16px 16px 60px;
+    font-size: 1em;
+    color: #4e4e4f;
 }
 
 .to-do-footer {
     position: relative;
+    overflow: hidden;
+    padding: 16px 16px;
+    display:none;
 }
 
 .to-do-footer>span{

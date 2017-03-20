@@ -82,11 +82,11 @@ export default class App extends Component {
     }
 
     render() {
-        return <div className="App">
+        return <div className="App shadow">
             <h1>todos</h1>
             <InputBar handleSubmit={this.handleSubmit} checkAll={this.state.checkAll} handleCheckAll={this.handleCheckAll}></InputBar>
             <ToDoList value={this.filterToDoList(this.state.toDoList)} handleItemCheck = {this.handleItemCheck} filter={this.state.filter}></ToDoList>
-            <ToDoFooter itemsLen={this.filterToDoList(this.state.toDoList).length} handleClickFilter = {this.handleClickFilter} clearCompleted={this.clearCompleted}/>
+            <ToDoFooter itemsLen={this.filterToDoList(this.state.toDoList).length} allLen={this.state.toDoList.length} handleClickFilter = {this.handleClickFilter} clearCompleted={this.clearCompleted}/>
         </div>;
     }
 }
